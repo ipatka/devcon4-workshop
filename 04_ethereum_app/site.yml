@@ -45,6 +45,10 @@
         role: parity
       tags: role-parity
 
+    - import_role:
+        role: ethstats-client
+      tags: role-ethstats-client
+
 - hosts: app_node
   become: True
   tasks:
@@ -52,7 +56,7 @@
         role: nodejs
       tags: role-nodejs
 
-#    - import_role:
-#        role: ethstats
-#      tags: role-ethstats
+    - import_role:
+        role: ethstats-server
+      tags: role-ethstats-server
 
