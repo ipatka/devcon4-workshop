@@ -26,27 +26,32 @@ This Terraform config is very basic. It checks Docker Hub for the latest stable 
 
 1. Enter the exercise directory:
 
-    cd 01_geth_light
+    `cd /devcon4-workshop/00_docker_light_client`
 
 2. Initialize the Terraform configuration, and view the execution plan:
 
     terraform init
+    
     terraform plan
 
 3. Apply the Terraform config to build the infrastructure, then show the results:
 
     terraform apply
+    
     terraform show
    
 4. View running Docker containers, and show logs from our Geth light client:
  
     docker ps
+    
     docker logs devcon4-geth_light
 
 5. Query the Geth node using API calls to the RPC interface:
 
     curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' http://127.0.0.1:8545
+    
     curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"net_version","params":[],"id":67}' http://127.0.0.1:8545
+    
     curl -H "Content-Type: application/json" -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":74}' http://127.0.0.1:8545
 
 6. Clean up the infrastructure by deleting everything:
